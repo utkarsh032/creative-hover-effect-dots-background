@@ -1,0 +1,61 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+
+:root {
+  --color: blue;
+  --background-color: #001300;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  background: var(--background-color);
+  overflow: hidden;
+  animation: changeColor 5s linear infinite;
+}
+
+@keyframes changecolor {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+span {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+span::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: var(--color);
+  transform: scale(0.1);
+  border-radius: 50%;
+  box-shadow: 0 0 05px var(--color), 0 0 10px var(--color),
+    0 0 20px var(--color), 0 0 40px var(--color), 0 0 60px var(--color),
+    0 0 80px var(--color);
+  transition: all 2s ease-in-out;
+}
+
+span:hover::after {
+  transform: scale(1);
+  transition: all 0s ease-in-out;
+}
